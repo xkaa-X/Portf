@@ -1,3 +1,4 @@
+git pull origin main --allow-unrelated-histories
 @props(['status'])
 
 @if ($status)
