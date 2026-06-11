@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { Head, useForm, Link } from '@inertiajs/react';
 import { User, Code, Briefcase, Camera, Check, X, ArrowLeft, ArrowRight, Sparkles, LogOut, Loader2 } from 'lucide-react';
+import ElegantShape from '@/Components/ElegantShape';
 
 // Opsi Senjata Teknologi untuk menghindari typo
 const SKILL_OPTIONS = [
@@ -81,12 +82,63 @@ export default function Dashboard() {
             <Head title="Atelier Dashboard | Portf." />
             <div className="min-h-screen bg-[#030303] text-zinc-100 flex flex-col relative overflow-hidden font-sans">
                 
+                <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/[0.05] via-transparent to-rose-500/[0.05] blur-3xl pointer-events-none" />
+
+                <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                    <ElegantShape
+                        delay={0.3}
+                        width={600}
+                        height={140}
+                        rotate={12}
+                        gradient="from-indigo-500/[0.15]"
+                        className="left-[-10%] md:left-[-5%] top-[15%] md:top-[20%]"
+                    />
+
+                    <ElegantShape
+                        delay={0.5}
+                        width={500}
+                        height={120}
+                        rotate={-15}
+                        gradient="from-rose-500/[0.15]"
+                        className="right-[-5%] md:right-[0%] top-[70%] md:top-[75%]"
+                    />
+
+                    <ElegantShape
+                        delay={0.4}
+                        width={300}
+                        height={80}
+                        rotate={-8}
+                        gradient="from-violet-500/[0.15]"
+                        className="left-[5%] md:left-[10%] bottom-[5%] md:bottom-[10%]"
+                    />
+
+                    <ElegantShape
+                        delay={0.6}
+                        width={200}
+                        height={60}
+                        rotate={20}
+                        gradient="from-amber-500/[0.15]"
+                        className="right-[15%] md:right-[20%] top-[10%] md:top-[15%]"
+                    />
+
+                    <ElegantShape
+                        delay={0.7}
+                        width={150}
+                        height={40}
+                        rotate={-25}
+                        gradient="from-cyan-500/[0.15]"
+                        className="left-[20%] md:left-[25%] top-[5%] md:top-[10%]"
+                    />
+                </div>
+
+                <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-transparent to-[#030303]/80 pointer-events-none" />
+
                 {/* Header */}
                 <header className="border-b border-zinc-900 bg-zinc-950/20 backdrop-blur-md relative z-10">
                     <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
                         <div className="flex items-center gap-3">
                             <Link href="/" className="text-lg font-serif font-bold tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 to-zinc-400">Portf.</Link>
-                            <span className="text-[10px] uppercase font-mono px-2 py-0.5 rounded border border-zinc-800 bg-zinc-900 text-zinc-500">Atelier Suite</span>
+                            <span className="text-[10px] uppercase font-mono px-2 py-0.5 rounded border border-zinc-800 bg-zinc-900 text-zinc-500">Project</span>
                         </div>
                         <Link href="/logout" method="post" as="button" className="text-[10px] uppercase tracking-widest text-zinc-500 hover:text-red-400 flex items-center gap-2 transition">
                             <LogOut className="w-3 h-3" /> Exit Studio
@@ -161,7 +213,7 @@ export default function Dashboard() {
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                         <div>
                                             <label className="block text-[10px] uppercase tracking-widest text-zinc-400 mb-2 font-mono">Creative Name</label>
-                                            <input type="text" value={data.name} onChange={e => setData('name', e.target.value)} className="w-full bg-[#0d0d11] border border-zinc-800/80 rounded-xl px-4 py-3 text-sm text-zinc-200 focus:border-amber-500/40 focus:outline-none transition" placeholder="e.g. Naqa" />
+                                            <input type="text" value={data.name} onChange={e => setData('name', e.target.value)} className="w-full bg-[#0d0d11] border border-zinc-800/80 rounded-xl px-4 py-3 text-sm text-zinc-200 focus:border-amber-500/40 focus:outline-none transition" placeholder="Name" />
                                             {errors.name && <div className="text-red-400 text-[10px] font-mono mt-1">{errors.name}</div>}
                                         </div>
                                         <div>
@@ -175,12 +227,12 @@ export default function Dashboard() {
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                         <div>
                                             <label className="block text-[10px] uppercase tracking-widest text-zinc-400 mb-2 font-mono">Location / Base</label>
-                                            <input type="text" value={data.location} onChange={e => setData('location', e.target.value)} className="w-full bg-[#0d0d11] border border-zinc-800/80 rounded-xl px-4 py-3 text-sm text-zinc-200 focus:border-amber-500/40 focus:outline-none transition" placeholder="e.g. Jakarta, Indonesia" />
+                                            <input type="text" value={data.location} onChange={e => setData('location', e.target.value)} className="w-full bg-[#0d0d11] border border-zinc-800/80 rounded-xl px-4 py-3 text-sm text-zinc-200 focus:border-amber-500/40 focus:outline-none transition" placeholder="e.g. Jakarta" />
                                             {errors.location && <div className="text-red-400 text-[10px] font-mono mt-1">{errors.location}</div>}
                                         </div>
                                         <div>
                                             <label className="block text-[10px] uppercase tracking-widest text-zinc-400 mb-2 font-mono">Primary Contact</label>
-                                            <input type="text" value={data.contact} onChange={e => setData('contact', e.target.value)} className="w-full bg-[#0d0d11] border border-zinc-800/80 rounded-xl px-4 py-3 text-sm text-zinc-200 focus:border-amber-500/40 focus:outline-none transition" placeholder="e.g. hello@naqa.art" />
+                                            <input type="text" value={data.contact} onChange={e => setData('contact', e.target.value)} className="w-full bg-[#0d0d11] border border-zinc-800/80 rounded-xl px-4 py-3 text-sm text-zinc-200 focus:border-amber-500/40 focus:outline-none transition" placeholder="e.g. example@gmail.com" />
                                             {errors.contact && <div className="text-red-400 text-[10px] font-mono mt-1">{errors.contact}</div>}
                                         </div>
                                     </div>

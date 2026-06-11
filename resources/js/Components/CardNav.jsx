@@ -58,7 +58,7 @@ const CardNav = ({ items = [], auth }) => {
                             href={route('dashboard')} 
                             className="text-[10px] uppercase tracking-widest border border-zinc-800 px-5 py-2.5 rounded-xl bg-zinc-900 text-zinc-200 font-medium hover:bg-zinc-800 transition duration-300"
                         >
-                            Atelier Suite
+                            Dashboard
                         </Link>
                     ) : (
                         <>

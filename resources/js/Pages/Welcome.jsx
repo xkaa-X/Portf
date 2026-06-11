@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Head } from '@inertiajs/react';
 import CardNav from '@/Components/CardNav';
+import BackgroundPaths from '@/Components/BackgroundPaths';
 
 export default function Welcome({ auth, navItems }) {
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -26,18 +27,7 @@ export default function Welcome({ auth, navItems }) {
                 onMouseLeave={() => setIsHovered(false)}
             >
                 
-                {/* DARK VEIL LAYER 1: Pendaran Sinar Di Balik Tabir (Akan mengikuti koordinat kursor) */}
-                <div 
-                    className="pointer-events-none fixed inset-0 z-0 transition-opacity duration-500 ease-in-out"
-                    style={{
-                        opacity: isHovered ? 0.8 : 0.3,
-                        background: `radial-gradient(600px circle at ${mousePos.x}px ${mousePos.y}px, rgba(212, 163, 89, 0.06), transparent 80%)`
-                    }}
-                />
-
-                {/* DARK VEIL LAYER 2: Efek Kabut Radial Konstan di Pojok Layar */}
-                <div className="absolute top-[-10%] left-[-10%] w-[800px] h-[800px] bg-gradient-to-br from-amber-500/5 to-purple-500/0 blur-[130px] rounded-full pointer-events-none z-0" />
-                <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-zinc-800/10 blur-[150px] rounded-full pointer-events-none z-0" />
+                <BackgroundPaths />
 
                 {/* KONTEN UTAMA (Z-index di atas veil background) */}
                 <div className="relative z-10 flex flex-col min-h-screen">
@@ -51,20 +41,20 @@ export default function Welcome({ auth, navItems }) {
                         {/* Tag Kecil Animasi */}
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-zinc-800 bg-zinc-900/50 text-[10px] uppercase tracking-widest text-zinc-400 mb-8 animate-fade-in">
                             <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping"></span>
-                            Engine Version 2.0 Active
+                            Portf Engine 2.0 Active
                         </div>
 
                         {/* Judul Utama dengan Efek Gradasi Mewah */}
                         <h1 className="text-4xl md:text-7xl font-light tracking-tight leading-[1.15] max-w-4xl mx-auto text-zinc-200">
-                            Ubah Parameter Kode Menjadi <br />
+                            Buat Portofolio kalian dengan cepat <br />
                             <span className="font-serif italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-300 to-amber-500">
-                                Karya Agung
-                            </span> Portofolio.
+                                Dan Praktis
+                            </span> dengan portf.
                         </h1>
 
                         {/* Sub-Deskripsi */}
                         <p className="text-zinc-500 text-xs md:text-sm max-w-lg mx-auto mt-8 font-light leading-relaxed tracking-wide">
-                            Cukup tuangkan narasi masterpiece Anda. Kecerdasan sistem kami akan merakit sebuah halaman portofolio premium siap pakai beserta berkas source-code .ZIP instan.
+                            Platform kurasi digital eksklusif yang mentransformasi rekam jejak Anda menjadi sebuah portofolio dengan estetika high-end. Karena profesionalisme sejati tidak sekadar ditampilkan.
                         </p>
 
                         {/* Tombol Aksi Utama */}
@@ -74,7 +64,7 @@ export default function Welcome({ auth, navItems }) {
                                     href={route('dashboard')} 
                                     className="px-8 py-4 bg-zinc-100 hover:bg-zinc-200 text-zinc-950 font-semibold uppercase tracking-widest text-[10px] rounded-xl transition-all duration-300 shadow-xl shadow-amber-500/5"
                                 >
-                                    Masuk Ke Dashboard Atelier
+                                    Masuk Ke Dashboard
                                 </a>
                             ) : (
                                 <a 
